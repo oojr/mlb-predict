@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" ng-app="blogs">
+    <head>
+        <title>Blogs</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+        <script src="js/angular-xml.js"></script>
+        <script src="js/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body{
+            padding-top: 40px;
+            background-image: url(img/skulls.png);
+            font-family: Lato;
+        }
+        h1{
+            font-family: Lato;
+        }
+        
+    </style>
+    </head>
+    <body ng-controller="BlogsCtrl">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center"> MLB Predictor</h1>
+            </div>
+        </div>
+
+        <div class="row">
+         <div class="col-md-5">
+            <form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="team1" class="col-sm-3 control-label">Favorite</label>
+    <div class="col-sm-9">
+      <select class="form-control"
+             ng-model="teamOne" ng-options="blog as blog.name for blog in blogs">
+  
+        </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-3 control-label">Underdog</label>
+    <div class="col-sm-9">
+      <select class="form-control"
+             ng-model="teamTwo" ng-options="blog as blog.name for blog in blogs">
+  
+        </select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-10">
+      <button type="submit" ng-click="compare()" class="btn btn-default">Compare</button>
+    </div>
+  </div>
+</form>
+        
+       
+        
+
+        </div>
+           <div class= "col-md-5">
+                <div ng-show="favTeam"> <div class="panel panel-default">
+                  <div ng-show="winningTeam" class="panel-body">
+                      {{winningTeam}} should win by {{runCount}} runs
+                 </div>
+                 <div ng-hide="winningTeam" class="panel-body">
+                      {{losingTeam}} should be the underdog
+                 </div>
+                 </div>
+               </div>
+            </div>
+        </div>
+       
+            
+        
+    </div>
+    </body>
+</html>
